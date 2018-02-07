@@ -48,7 +48,7 @@ public class SpeechRecognitionEngine : MonoBehaviour
     private void Recognizer_OnPhraseRecognized(PhraseRecognizedEventArgs args)
     {
         word = args.text;
-        results.text = "You said: <b>" + word + "</b>";
+        results.text = "##### you said: <b>" + word + "</b> #####";
 
         if (codes[codeIndex] == word)
         {
@@ -74,7 +74,7 @@ public class SpeechRecognitionEngine : MonoBehaviour
             soundPlayer.PlayOneShot(lockSounds[1]);
             soundPlayer.PlayOneShot(doorOpenSound);
 
-            results.text = "Door unlocked!";
+            results.text = "##### DOOR UNLOCKED #####";
 
             recognizer.Stop();
 
