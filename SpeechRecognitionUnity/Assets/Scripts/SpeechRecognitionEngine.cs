@@ -6,8 +6,10 @@ using UnityEngine.Windows.Speech;
 
 public class SpeechRecognitionEngine : MonoBehaviour
 {
-    public string[] keywords = new string[] { "up", "down", "left", "right" };
-    public ConfidenceLevel confidence = ConfidenceLevel.Medium;
+    public string[] keywords = new string[] { "Alfa", "Bravo", "Charlie", "Delta", "Echo", "Foxtrot", "Golf", "Hotel", "India", "Juliett", "Kilo", "Lima", "Mike", "November", "Oscar", "Papa", "Quebec", "Romeo", "Sierra", "Tango", "Uniform", "Victor", "Whiskey", "Xray", "Yankee", "Zulu" };
+    public string[] armyAlphabet = new string[] { "Alfa", "Bravo", "Charlie", "Delta", "Echo", "Foxtrot", "Golf", "Hotel", "India", "Juliett", "Kilo", "Lima", "Mike", "November", "Oscar", "Papa", "Quebec", "Romeo", "Sierra", "Tango", "Uniform", "Victor", "Whiskey", "Xray", "Yankee", "Zulu", "Wow", "Wauw", "Waw", "IJsfontein", "Fuck", "Shit", "Motel", "Pappa", "Poppa", "Wise key", "Sulu", "Silly", "Nice", "Lime", "Alfa Romeoo", "Tongo" };
+    public string[] armyAlphabetWithDistractions = new string[] { "Alfa", "Bravo", "Charlie", "Delta", "Echo", "Foxtrot", "Golf", "Hotel", "India", "Juliett", "Kilo", "Lima", "Mike", "November", "Oscar", "Papa", "Quebec", "Romeo", "Sierra", "Tango", "Uniform", "Victor", "Whiskey", "Xray", "Yankee", "Zulu", "Wow", "Wauw", "Waw", "IJsfontein", "Fuck", "Shit", "Motel", "Pappa", "Poppa", "Wise key", "Sulu", "Silly", "Nice", "Lime", "Alfa Romeoo", "Tongo" };
+    public ConfidenceLevel confidence = ConfidenceLevel.Low;
     public float speed = 1;
 
     public Text results;
@@ -18,9 +20,9 @@ public class SpeechRecognitionEngine : MonoBehaviour
 
     private void Start()
     {
-        if (keywords != null)
+        if (armyAlphabetWithDistractions != null)
         {
-            recognizer = new KeywordRecognizer(keywords, confidence);
+            recognizer = new KeywordRecognizer(armyAlphabetWithDistractions, confidence);
             recognizer.OnPhraseRecognized += Recognizer_OnPhraseRecognized;
             recognizer.Start();
         }
